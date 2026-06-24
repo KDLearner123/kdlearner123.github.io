@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Curriculum Vitae</div>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-2xl w-full font-bold">Education & Competitions</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="USACO Bronze Competitor (Upcoming Season)"
+      subtitle="2026 - Present"
+      desc="Actively training in advanced algorithms, data structures, and computational logic in preparation for the upcoming USACO competitive programming season."
+    />
+    <TimeLineElement
+      title="Advanced Independent AI Research"
+      subtitle="2024 - Present"
+      desc="Deep dive into specialized deep learning architectures, including Graph Neural Networks (GNNs) for biochemical modeling and Physics-Informed Neural Networks (PINNs) for structural mechanics and physics simulations."
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-2xl w-full font-bold">Certifications & Credentials</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="CS50's Introduction to Artificial Intelligence with Python"
+      subtitle="Harvard University (edX)"
+      desc="Mastered foundational concepts of machine learning, search algorithms, reinforcement learning, and neural network internals."
+    />
+    <TimeLineElement
+      title="PCEP – Certified Entry-Level Python Programmer"
+      subtitle="Python Institute"
+      desc="Validated proficiency in core procedural programming concepts, data structures, and algorithmic logic."
+    />
+    <TimeLineElement
+      title="CompTIA Security+ (In Progress)"
+      subtitle="Expected 2026"
+      desc="Studying fundamental cybersecurity principles, core network security concepts, and architecture defense mechanisms."
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-2xl w-full font-bold">Skills & Frameworks</div>
+  </div>
+
+  <ul class="list-disc md:columns-2 columns-1 mx-6 mb-10">
+    <li><strong>Languages:</strong> Python, C++, HTML/CSS, JavaScript</li>
+    <li>
+      <strong>ML Frameworks:</strong> PyTorch, PyTorch Geometric, TensorFlow Lite,
+      ONNX
+    </li>
+    <li><strong>Libraries:</strong> SciPy, NetworkX, NumPy, Pandas</li>
+    <li>
+      <strong>Core Competencies:</strong> Deep Learning Internals, Graph Theory, Numerical
+      Physics Simulations
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-2xl w-full font-bold">Additional Interests</div>
+  </div>
+
+  <div class="mb-10">
+    <p class="mb-2">
+      <strong>Technical Writing:</strong> Launching a specialized AI blog focused
+      on abstracting complex, high-level neural network architectures and technical
+      concepts into clear, intuitive deep-dives.
+    </p>
+    <p>
+      <strong>Classical Music:</strong> Accomplished multi-instrumentalist studying
+      and performing across 3 separate instruments.
+    </p>
+  </div>
+</BaseLayout>

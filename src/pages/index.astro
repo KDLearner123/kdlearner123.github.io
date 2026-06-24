@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Kiaan Dutta</div>
+    <div class="text-3xl py-3 font-bold">
+      High School Student & AI Researcher
+    </div>
+    <div class="py-2">
+      <text class="text-lg">
+        I am a student researcher focusing on advanced artificial intelligence
+        architectures, deep learning internals, and their applications across
+        several fields including physics, bioinformatics, and biochemistry.
+        Alongside my research, I analyze complex computational concepts through
+        technical writing and competitive programming.
+      </text>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">About Me</div>
+  </div>
+
+  <div class="mb-10 text-justify leading-relaxed">
+    <p class="mb-4">
+      My work lies at the intersection of machine learning and fields I'm
+      interested in such as mathematical physics and the life sciences. I
+      specialize in training and deploying non-traditional neural
+      architectures—including Graph Neural Networks (GNNs) and Physics-Informed
+      Neural Networks (PINNs)—to model complex systems, from primordial
+      autocatalytic pathways to edge-computed medical triage, as well as diving
+      into mechanistic interpretability and how artificial intelligence models
+      are truly structured on the inside researching advanced topics from model
+      superposition to transformer circuits to scaling monosemanticity. I am
+      also starting to experiment with ai agents and work with them to create
+      projects and explore new ideas.
+    </p>
+    <p class="mb-4">
+      I hold certifications including Harvard's CS50 AI and the Python
+      Institute's PCEP, and I am currently preparing for the CompTIA Security+
+      credential and the upcoming USACO competitive season.
+    </p>
+    <p>
+      Outside of computer science, I am deeply interested in advanced
+      mathematics, theoretical physics, and classical music, where I study and
+      perform across three instruments.
+    </p>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Prebiotic Autocatalytic Feedback Loop Discovery"
+    desc="Implemented Graph Neural Networks (GNNs) to model complex biochemical reaction networks, analyzing how varied primordial environmental constraints influence the emergence and stabilization of autocatalytic feedback loops."
+    url="https://github.com/KDLearner123/prebioticnet"
+    badge="Biochemistry / GNNs"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Local Edge AI for Offline Medical Triage"
+    desc="Engineered a lightweight, highly optimized deep learning model engineered for real-time emergency medical triage deployment on edge devices in zero-connectivity or disaster-compromised environments. Submitted to Kaggle."
+    url="https://github.com/KDLearner123/Edge-Responder"
+    badge="Edge Computing / Healthcare"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="PINN Gravitational System Modeling"
+    desc="Designed and trained a Physics-Informed Neural Network (PINN) that integrates fundamental gravitational principles directly into the architecture's loss function, significantly reducing divergence in long-term physical simulations to generate a complex gravitational simulation of celestial bodies."
+    url="https://github.com/KDLearner123/pinn-gravity-field"
+    badge="Mathematical Physics"
+  />
+  <div class="divider my-0"></div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>
