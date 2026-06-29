@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
@@ -30,21 +31,22 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="time-line-container grid gap-4 mb-10">
-    <TimeLineElement
-      title="CS50's Introduction to Artificial Intelligence with Python"
-      subtitle="Harvard University (edX)"
-      desc="Mastered foundational concepts of machine learning, search algorithms, reinforcement learning, and neural network internals."
-    />
-    <TimeLineElement
+    <HorizontalCard
       title="PCEP – Certified Entry-Level Python Programmer"
-      subtitle="Python Institute"
-      desc="Validated proficiency in core procedural programming concepts, data structures, and algorithmic logic."
+      img="/pcep.png"
+      desc=""
+      url="https://pythoninstitute.org/pcep"
+      badge="Python"
     />
-    <TimeLineElement
-      title="CompTIA Security+ (In Progress)"
-      subtitle="Expected 2026"
-      desc="Studying fundamental cybersecurity principles, core network security concepts, and architecture defense mechanisms."
+    <div class="divider my-0"></div>
+    <HorizontalCard
+      title="CS50's Introduction to Artificial Intelligence with Python"
+      img="/CS50AI.png"
+      desc=""
+      url="https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python"
+      badge="AI"
     />
+    <div class="divider my-0"></div>
   </div>
 
   <div class="mb-5">
